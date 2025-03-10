@@ -1,0 +1,21 @@
+// NAMA : MUHAMMAD RAFLI ABIDI UTAMA
+// NIM : 235150301111035
+
+import suympy as sp
+
+# Definisi simbol
+s = sp.symbols('s')  # Variabel Laplace
+V = sp.symbols('V')  # Tegangan input
+R = sp.symbols('R')  # Resistansi
+K = sp.symbols('K')  # Konstanta
+J = sp.symbols('J')  # Momen inersia
+B = sp.symbols('B')  # Koefisien gesekan viscous
+omega = sp.symbols('s R V K J B omega')
+
+# Define the transfer function based on the given equation
+H_eq = sp.Eq(sp.Symbol('H(s)'), omega / V)
+H_eq2 = ((K/R) / (J * s + (K**2 / R) + B))
+
+# Display transfer function
+sp.pprint(H_eq)
+display(H_eq2)

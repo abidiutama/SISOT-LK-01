@@ -1,0 +1,28 @@
+// NAMA : MUHAMMAD RAFLI ABIDI UTAMA
+// NIM : 235150301111035
+
+import sympy as sp
+
+# Definisi simbol
+t = sp.symbols('t')  # Waktu
+s = sp.symbols('s')  # Variabel Laplace
+V = sp.symbols('V')  # Tegangan input
+R = sp.symbols('R')  # Resistansi
+L = sp.symbols('L')  # Induktansi
+J = sp.symbols('J')  # Momen inersia
+b = sp.symbols('b')  # Koefisien gesekan viscous
+Kt = sp.symbols('Kt')  # Konstanta torsi
+Ke = sp.symbols('Ke')  # Konstanta GGL
+I = sp.Function('I')(s)  # Arus
+OMEGA = sp.Function('OMEGA')(s)  # Kecepatan sudut dalam domain Laplace
+
+# PERSAMAAN LISTRIK PADA DOMINAN LAPLACE: V(s) = (R + L*s)*I(s) + Ke*OMEGA(s)
+eq_electric_laplace = sp.Eq(V, (R + L*s)*I + Ke*OMEGA)
+
+# PERSAMAAN MEKANIK PADA DOMINAN LAPLACE: Kt*I(s) = (J*s + b)*OMEGA(s)
+eq_mechanical_laplace = sp.Eq(Kt*I, (J*s + b)*OMEGA)
+
+print("Persamaan Listrik:")
+sp.pprint(eq_electric)
+print("\nPersamaan Mekanik:")
+sp.pprint(eq_mechanical)
